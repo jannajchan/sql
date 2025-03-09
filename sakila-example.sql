@@ -33,3 +33,7 @@ INNER JOIN address ON customer.address_id = address.address_id
 INNER JOIN inventory ON rental.inventory_id = inventory.inventory_id 
 INNER JOIN film ON inventory.film_id = film.film_id 
 WHERE rental.return_date IS NULL AND rental_date + INTERVAL film.rental_duration DAY < CURRENT_DATE() ORDER BY title LIMIT 5;
+
+/* My test queries */
+-- a. Find films that are in stock --
+SELECT film.title, COUNT(inventory_id) AS stock FROM film LEFT JOIN inventory ON film.film_id = inventory.film_id WHERE inventory_id NOT IN (SELECT inventory_id FROM rental) GROUP BY title ORDER BY stock DESC, title;
