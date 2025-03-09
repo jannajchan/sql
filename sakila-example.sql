@@ -2,7 +2,7 @@ SELECT count(*) FROM sakila.film_text;
 CALL sakila.film_in_stock(1, 1, @count);
 CALL sakila.film_not_in_stock(2, 2, @count);
 
--- USAGE EXAMPLES --
+/* USAGE EXAMPLES */
 -- 1. Rent a DVD --
 SELECT sakila.inventory_in_stock(10);
 INSERT INTO sakila.rental(rental_date, inventory_id, customer_id, staff_id) VALUES(NOW(), 10, 3, 1);
