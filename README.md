@@ -189,3 +189,32 @@ About SQL (Structured Query Language)
     <td>การดึงข้อมูลภายใต้ query หลัก</td>
   </tr>
 </table>
+
+# SELECT
+select multiple fields by listing them after the SELECT keyword, seperated by comma (,). Or select all fields from a table by using an asterisk (*) instead of listing each fields individually.
+
+# DISTINCT
+The DISTINCT keyword helps you retrieve unique values from a volumn, eliminating duplicate entries.
+
+# Creating Views
+A view us a saved SQL query that acts like a virtual table. It allows you to reuse complex queries and ensures that the results are always up-to-date with the underlying data.
+
+-- Create a view for unique authors
+CREATE VIEW unique_authors AS
+SELECT DISTINCT author AS unique_author
+FROM books;
+
+# SQL Flavors
+SQL has different versions, or "flavors", such as PostgreSQL and SQL Server. Each flavor follows universal standards but may have additional features. For example, to limit the number of records returned, PostgreSQL use the LIMIT keyword, while SQL Server use the TOP keyword.
+
+-- PostgreSQL query to limit results
+SELECT employee_name, employee_id
+FROM employees
+LIMIT 2;
+
+-- SQL Server query to limit results
+SELECT TOP 2 employee_name, employee_id
+FROM employees;
+
+# WHERE
+With the WHERE clause, you can filter the results based on specific conditions.
